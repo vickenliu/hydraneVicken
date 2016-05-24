@@ -1,5 +1,5 @@
-import {Component ,OnInit,OnChanges,SimpleChange} from '@angular/core';
-import { CHART_DIRECTIVES } from 'angular2-highcharts';
+import {Component, OnInit,OnChanges, SimpleChange} from '@angular/core';
+import { CHART_DIRECTIVES }                        from 'angular2-highcharts';
 
 
 @Component({
@@ -12,13 +12,14 @@ import { CHART_DIRECTIVES } from 'angular2-highcharts';
     inputs:['pieData','pietitle','num','continentCode']
 })
 export class PieChartExample implements OnInit,OnChanges{
-        pieData:any[];
-        num:number;
+    pieData:any[];
+    num:number;
     options: Object;
     sizeData:any[]=[];
     populationData: any[]=[];
     renderData:any[];
     anotherOption:Object;
+
     ngOnInit(){
       let totalForSize =0;
       let totalPopulation =0;
@@ -37,14 +38,12 @@ export class PieChartExample implements OnInit,OnChanges{
     }
     ngOnChanges(changes: {[propertyName: string]: SimpleChange}) {
       for (let propName in changes) {
-        console.log(propName)
         if(propName=='num' || propName=='continentCode'){
           this.ngOnInit()
         }
       }
     }
     caculateOption(value,pietitle){
-      console.log('is it running')
       return {
           title : { text : pietitle },
           chart: {
@@ -54,8 +53,8 @@ export class PieChartExample implements OnInit,OnChanges{
               type: 'pie'
           },
           tooltip: {
-  pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-},
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+          },
           plotOptions: {
           pie: {
               allowPointSelect: true,
@@ -67,13 +66,13 @@ export class PieChartExample implements OnInit,OnChanges{
                       color: ('red' && 'whit') || 'black'
                   }
               }
-          }
-      },
+            }
+          },
           series: [{
-          name: 'Brands',
-          colorByPoint: true,
-          data: value }]
+            name: 'Brands',
+            colorByPoint: true,
+            data: value
+          }]
       };
     }
-
 }

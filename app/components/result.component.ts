@@ -1,6 +1,6 @@
 import {Component,OnInit,OnChanges,SimpleChange} from '@angular/core';
-import {SortPipe} from './sort.pipe';
-import {PieChartExample} from './pai.component';
+import {SortPipe}          from './sort.pipe';
+import {PieChartExample}   from './pai.component';
 
 @Component({
     selector: 'my-result',

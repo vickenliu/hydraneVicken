@@ -1,14 +1,14 @@
-import {Component} from '@angular/core';
+import {Component}       from '@angular/core';
 import {LoadDataService} from './loadData';
 import {SearchComponent} from './search.component';
-import {FilterPipe} from './filter.pipe';
+import {FilterPipe}      from './filter.pipe';
 import {ResultComponent} from './result.component';
 
 
 @Component({
     selector: 'my-app',
     template: `
-        <button (click)="onClick()" class='btn btn-lg btn-info'>GO</button>
+        <button (click)="onClick()" >GO</button>
         <my-search [continents]="continents" (childChanged)="updateQuery($event)"></my-search>
         <h2 *ngIf='loading'>Loading Data...</h2>
         <my-result *ngIf="data" [type]='selectedType' [num]='selectedNum' [filtered]="data | search:selectedContinent" [continentCode]='selectedContinent'></my-result>

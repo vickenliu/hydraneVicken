@@ -3,7 +3,7 @@
 ## Install
 ```bash
 git clone https://github.com/vickenliu/hydraneVicken
-cd angular2-express-slim
+cd hydraneVicken
 
 # Install dependencies
 npm install
