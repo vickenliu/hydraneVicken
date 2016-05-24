@@ -4,10 +4,13 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var request = require('superagent')
 
 var users = require('./routes/users');
 
 var app = express();
+
+
 
 // expose node_modules to client app
 app.use(express.static(__dirname + "/node_modules"));
@@ -25,6 +28,12 @@ app.use(require('stylus').middleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'app')));
 
+app.get('/hydraneData',function(req,res){
+ request.get('http://api.geonames.org/countryInfoJSON?formatted=true&username=hydrane')
+        .end(function(err,data){
+          res.json(JSON.parse(data.text))
+        })
+})
 app.use('/users', users);
 
 // catch 404 and forward to error handler
