@@ -26,6 +26,9 @@ button{
   border-radius: 10px;
 }
 div.tablewrapper{
+  width: 80%;
+  display: block;
+  margin: 5px auto;
   display: block;
   max-height: 50vh;
   overflow: scroll;
@@ -65,3 +68,8 @@ label, select{
 }
 tr:nth-child(even) {background: #CCC}
 tr:nth-child(odd) {background: #FFF}
+.highcharts-container{
+  width: 50%;
+  display: block;
+  float: left;
+}
