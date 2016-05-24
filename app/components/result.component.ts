@@ -1,4 +1,4 @@
-import {Component,OnInit} from '@angular/core';
+import {Component,OnInit,OnChanges,SimpleChange} from '@angular/core';
 import {SortPipe} from './sort.pipe';
 
 @Component({
@@ -12,7 +12,7 @@ import {SortPipe} from './sort.pipe';
         <th *ngIf="type=='population' || type=='ALL'" (click)='sortTable("population")'>Population (click me)</th>
       </tr>
       <tr *ngFor="#item of filtered.slice(0,num) | sortBy:sortedBy ">
-        <td>{{item.continent}}</td>
+        <td >{{item.continent}}</td>
         <td>{{item.countryName}}</td>
         <td *ngIf="type=='areaInSqKm' || type=='ALL'">{{item.areaInSqKm}}</td>
         <td *ngIf="type=='population' || type=='ALL'">{{item.population}}</td>
@@ -27,7 +27,7 @@ import {SortPipe} from './sort.pipe';
     inputs: ['filtered','type','num'],
     pipes:[SortPipe]
 })
-export class ResultComponent implements OnInit{
+export class ResultComponent implements OnInit, OnChanges{
   filtered: any[];
   sortedBy:string;
   type:string;
@@ -47,4 +47,9 @@ export class ResultComponent implements OnInit{
     this.totalPopulation= sizePopulation
     this.totalSize = siezeTotal
   }
+  ngOnChanges(changes: {[propertyName: string]: SimpleChange}) {
+  for (let propName in changes) {
+    this.ngOnInit()
+  }
+}
 }
