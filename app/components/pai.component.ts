@@ -1,6 +1,7 @@
 import {Component ,OnInit,OnChanges,SimpleChange} from '@angular/core';
 import { CHART_DIRECTIVES } from 'angular2-highcharts';
 
+
 @Component({
     selector: 'pie-chart',
     directives: [CHART_DIRECTIVES],

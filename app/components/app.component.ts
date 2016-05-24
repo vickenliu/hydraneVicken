@@ -51,7 +51,6 @@ export class AppComponent {
       selected.indexOf(item.continent)<0? selected.push(item.continent) : selected;
     })
     this.continents= selected.sort();
-    console.log('consdfs',this.continents)
   }
   updateQuery(value){
     if(value.hasOwnProperty('continent')){
