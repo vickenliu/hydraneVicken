@@ -8,10 +8,11 @@ import { CHART_DIRECTIVES } from 'angular2-highcharts';
         <chart *ngIf="pietitle=='ALL' || pietitle=='areaInSqKm'" [options]="options"  class='chart'></chart>
         <chart *ngIf="pietitle=='ALL' || pietitle=='population'" [options]="anotherOption"  class='chart'></chart>
     `,
-    inputs:['pieData','pietitle']
+    inputs:['pieData','pietitle','num','continentCode']
 })
 export class PieChartExample implements OnInit,OnChanges{
         pieData:any[];
+        num:number;
     options: Object;
     sizeData:any[]=[];
     populationData: any[]=[];
@@ -24,16 +25,22 @@ export class PieChartExample implements OnInit,OnChanges{
         totalForSize+= Number(ele.areaInSqKm)
         totalPopulation+= Number(ele.population)
       })
+      this.sizeData=[]
+      this.populationData=[]
       this.pieData.forEach((item)=>{
         this.sizeData.push({name:item.countryName,y:Number((Number(item.areaInSqKm)/totalForSize*100).toFixed(2))})
         this.populationData.push({name:item.countryName,y:Number((Number(item.population)/totalPopulation*100).toFixed(2))})
       })
-      console.log(this.sizeData,'hei',this.populationData)
       this.options= this.caculateOption(this.sizeData,'areaInSqKm')
       this.anotherOption= this.caculateOption(this.populationData,'population')
     }
     ngOnChanges(changes: {[propertyName: string]: SimpleChange}) {
-
+      for (let propName in changes) {
+        console.log(propName)
+        if(propName=='num' || propName=='continentCode'){
+          this.ngOnInit()
+        }
+      }
     }
     caculateOption(value,pietitle){
       console.log('is it running')

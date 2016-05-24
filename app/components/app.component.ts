@@ -11,7 +11,7 @@ import {ResultComponent} from './result.component';
         <button (click)="onClick()" class='btn btn-lg btn-info'>GO</button>
         <my-search [continents]="continents" (childChanged)="updateQuery($event)"></my-search>
         <h2 *ngIf='loading'>Loading Data...</h2>
-        <my-result *ngIf="data" [type]='selectedType' [num]='selectedNum' [filtered]="data | search:selectedContinent"></my-result>
+        <my-result *ngIf="data" [type]='selectedType' [num]='selectedNum' [filtered]="data | search:selectedContinent" [continentCode]='selectedContinent'></my-result>
     `,
     providers:[LoadDataService],
     directives:[SearchComponent,ResultComponent],

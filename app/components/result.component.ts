@@ -26,9 +26,9 @@ import {PieChartExample} from './pai.component';
       </tr>
     </table>
     </div>
-    <pie-chart [pieData]="(filtered | sortBy:sortedBy).slice(0,num)" [pietitle]="type"></pie-chart>
+    <pie-chart [pieData]="(filtered | sortBy:sortedBy).slice(0,num)" [pietitle]="type" [num]='num' [continentCode]='continentCode'></pie-chart>
     `,
-    inputs: ['filtered','type','num'],
+    inputs: ['filtered','type','num','continentCode'],
     pipes:[SortPipe],
     directives:[PieChartExample]
 })
