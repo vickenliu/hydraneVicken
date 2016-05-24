@@ -20,7 +20,7 @@ import {Component,EventEmitter} from '@angular/core';
         </select>
       </div>
       <div class='inputGroup'>
-        <label>Rows</label>
+        <label>Pie Result</label>
         <select (change)="numChange($event.target.value)">
           <option value="5">5</option>
           <option value="10">10</option>

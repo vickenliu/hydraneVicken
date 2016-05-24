@@ -4,6 +4,7 @@ import {SearchComponent} from './search.component';
 import {FilterPipe} from './filter.pipe';
 import {ResultComponent} from './result.component';
 
+
 @Component({
     selector: 'my-app',
     template: `

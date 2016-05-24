@@ -25,6 +25,11 @@ button{
   background: #2196F3;
   border-radius: 10px;
 }
+div.tablewrapper{
+  display: block;
+  max-height: 50vh;
+  overflow: scroll;
+}
 table{
   width: 70vw;
   margin: 5px auto;

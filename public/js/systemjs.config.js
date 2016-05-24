@@ -17,7 +17,8 @@ var isPublic = typeof window != "undefined";
   var packages = {
     'app':                        { main: 'main.js',  defaultExtension: 'js' },
     'rxjs':                       { defaultExtension: 'js' },
-    'angular2-in-memory-web-api': { defaultExtension: 'js' }
+    'angular2-in-memory-web-api': { defaultExtension: 'js' },
+    'angular2-highcharts' :       { main: 'index',format: 'cjs', defaultExtension: 'js' }
   };
   var ngPackageNames = [
     'common',
