@@ -11,7 +11,7 @@ import {ResultComponent} from './result.component';
         <button (click)="onClick()" >GO</button>
         <my-search [continents]="continents" (childChanged)="updateQuery($event)"></my-search>
         <h2 *ngIf='loading'>Loading Data...</h2>
-        <my-result *ngIf="data" [type]='selectedType' [num]='selectedNum' [filtered]="data | search:selectedContinent" [continentCode]='selectedContinent'></my-result>
+        <my-result *ngIf="data" [query]='query' [filtered]="data | search:query.continentCode"></my-result>
     `,
     providers:[LoadDataService],
     directives:[SearchComponent,ResultComponent],
@@ -19,11 +19,13 @@ import {ResultComponent} from './result.component';
 })
 export class AppComponent {
   data: any;
+  query ={
+    num:5,
+    continentCode:'ALL',
+    type:'ALL'
+  };
   loading: boolean= false;
   continents: string[];
-  selectedContinent: string;
-  selectedType: string= 'ALL';
-  selectedNum: number= 5;
   constructor(private _loadDataService: LoadDataService){}
   onClick(){
     let that= this;
@@ -53,12 +55,6 @@ export class AppComponent {
     this.continents= selected.sort();
   }
   updateQuery(value){
-    if(value.hasOwnProperty('continent')){
-      this.selectedContinent= value['continent']
-    }else if(value.hasOwnProperty('type')){
-      this.selectedType= value['type']
-    }else if(value.hasOwnProperty('num')){
-      this.selectedNum= Number(value['num'])
-    }
+    this.query=(<any>Object).assign({},this.query,value);
   }
 }

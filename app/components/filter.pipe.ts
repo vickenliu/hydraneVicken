@@ -11,7 +11,7 @@ export class FilterPipe{
     }
     return pipeData.filter(item=>{
       let filtered=false;
-      Object.keys(item).map(key=>{
+      Object.keys(item).forEach(key=>{
         item[key]==pipeModifier? filtered= true  : filtered
       })
       return filtered

@@ -37,7 +37,7 @@ export class SearchComponent {
   continents: string[];
   childChanged= new EventEmitter<any>();
   codeChange(value:string){
-    this.childChanged.emit({continent:value})
+    this.childChanged.emit({continentCode:value})
   }
   typeChange(value){
     this.childChanged.emit({type:value})

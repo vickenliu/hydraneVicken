@@ -6,14 +6,14 @@ import { CHART_DIRECTIVES }                        from 'angular2-highcharts';
     selector: 'pie-chart',
     directives: [CHART_DIRECTIVES],
     template: `
-        <chart *ngIf="pietitle=='ALL' || pietitle=='areaInSqKm'" [options]="options"  class='chart'></chart>
-        <chart *ngIf="pietitle=='ALL' || pietitle=='population'" [options]="anotherOption"  class='chart'></chart>
+        <chart *ngIf="query.type=='ALL' || query.type=='areaInSqKm'" [options]="options"  class='chart'></chart>
+        <chart *ngIf="query.type=='ALL' || query.type=='population'" [options]="anotherOption"  class='chart'></chart>
     `,
-    inputs:['pieData','pietitle','num','continentCode']
+    inputs:['pieData','query']
 })
 export class PieChartExample implements OnInit,OnChanges{
     pieData:any[];
-    num:number;
+    query:any;
     options: Object;
     sizeData:any[]=[];
     populationData: any[]=[];
@@ -37,10 +37,8 @@ export class PieChartExample implements OnInit,OnChanges{
       this.anotherOption= this.caculateOption(this.populationData,'population')
     }
     ngOnChanges(changes: {[propertyName: string]: SimpleChange}) {
-      for (let propName in changes) {
-        if(propName=='num' || propName=='continentCode'){
-          this.ngOnInit()
-        }
+      if(changes['query']){
+        this.ngOnInit()
       }
     }
     caculateOption(value,pietitle){
