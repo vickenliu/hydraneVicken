@@ -1,6 +1,6 @@
 ## Angular2 Hydrane
 
-## Install
+## Install & Development
 ```bash
 git clone https://github.com/vickenliu/hydraneVicken
 cd hydraneVicken
@@ -11,31 +11,13 @@ npm install
 # run and watch for changes in .ts files
 npm start
 
-# Applciation url: http://localhost:3000
+# Applciation url: http://localhost:8080
 ```
 
-## Development
-Uncomment in public/index.html:
+## Deployment
 
-```html
-<script src="js/systemjs.config.js"></script>
-<script>
-  System.config({
-    defaultJSExtensions: true,
-    packages: {
-      app: {
-        format: 'register',
-        defaultExtension: 'js'
-      }
-    }
-  });
-  System.import('main')
-        .then(null, console.error.bind(console));
-</script>
+```bash
+npm run build
 ```
 
-Comment out
-```html
-<!-- Production mod -->
-<script src="js/bundle.min.js"></script>
-```
+upload files in 'dist' folder to the server

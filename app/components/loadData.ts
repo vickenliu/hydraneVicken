@@ -7,7 +7,7 @@ import 'rxjs/add/operator/map';
 export class LoadDataService {
   constructor(private _http: Http){}
   loadAll():any{
-    return  this._http.get('/hydraneData') // heroku (https) doesnt allow to recieve data from http api
+    return  this._http.get('http://api.geonames.org/countryInfoJSON?formatted=true&username=hydrane') // heroku (https) doesnt allow to recieve data from http api
          .map(res => res.json())           // try to get data through backend
   }
 }

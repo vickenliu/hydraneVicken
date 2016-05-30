@@ -1,0 +1,74 @@
+@import url(https://fonts.googleapis.com/css?family=Source+Code+Pro);body {
+  padding: 50px;
+  font-family: 'Source Code Pro', serif;
+}
+
+a {
+  color: #00B7FF;
+}
+h1,h2{
+  display: block;
+  margin: 5px auto;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+button{
+  cursor: pointer;
+  display: block;
+  width: 15%;
+  height: 50px;
+  margin: 5px auto;
+  font-size: 30px;
+  color: white;
+  background: #2196F3;
+  border-radius: 10px;
+}
+div.tablewrapper{
+  width: 80%;
+  display: block;
+  margin: 5px auto;
+  display: block;
+  max-height: 50vh;
+  overflow: scroll;
+}
+table{
+  width: 70vw;
+  margin: 5px auto;
+  border-collapse: collapse;
+}
+
+table, th, td {
+  text-align: center;
+    border: 1px solid black;
+}
+th{
+  font-size: 20px;
+  font-weight: bolder;
+}
+tr{
+  height: 26px
+}
+my-search{
+  width: 70vw;
+  display: block;
+  margin: 5px auto;
+}
+
+my-search .inputGroup{
+  text-align: center;
+  width: 30%;
+  display: inline-block;
+}
+label, select{
+  margin: 5px 0;
+  display: inline-block;
+  width: 100%;
+}
+tr:nth-child(even) {background: #CCC}
+tr:nth-child(odd) {background: #FFF}
+.highcharts-container{
+  width: 50%;
+  display: block;
+  float: left;
+}
