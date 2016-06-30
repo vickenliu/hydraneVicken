@@ -9,7 +9,7 @@ export class SortPipe{
     if(!pipeModifier){
       return pipeData;
     }
-    return pipeData.sort((a,b)=>{
+    return pipeData.sort((a,b)=>{  //  small to large numbers
       return Number(a[pipeModifier])-Number(b[pipeModifier])
     })
   }
